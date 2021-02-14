@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <header>
+      <div>SOFIA</div>
+      <div>one</div>
+      <div>two</div>
+      <div>three</div>
+      <div>four</div>
+      <div>five</div>
+      <div>shopping</div>
+    </header>
+
+    <main>
+      <div id="items">
+        % for item in items:
+        <div class="item">
+          <div></div>
+          <div>{{ item[1] }} - {{ item[4] }}</div>
+          <div>
+            <img width="400px" src="{{item[3]}}" alt="" />
+          </div>
+          <div class="description">
+            <!-- declaring a  python variable -->
+            <!-- % description = item[5][:30] -->
+            <p>{{ item[5] }}</p>
+          </div>
+          % price = f"{item[2]:,}".replace(",",".")
+          <div class="buttons">
+            <a href="/items/{{item[0]}}">more</a>
+            <button class="buy">Buy ({{price}}}IS.)</button>
+          </div>
+        </div>
+        % end
+      </div>
+    </main>
+  </body>
+</html>
